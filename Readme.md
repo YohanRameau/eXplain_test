@@ -14,4 +14,13 @@ Après avoir activer l'environnement, lancer les commandes :
 
 ## Endpoints
 
-Work.In.Progress....
+### /Territories
+
+
+*GET* : List all territories 
+
+### /Territories/<int:id>
+
+
+*GET* : Retrieve and detail a particular territory
+

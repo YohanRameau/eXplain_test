@@ -1,7 +1,9 @@
-from django.urls import path
+from rest_framework.routers import DefaultRouter 
 
 from territory_api.views import TerritoryViewSet
 
-urlpatterns = [
-    path('/', TerritoryViewSet.as_view(), name='territory')
-]
+
+# router = DefaultRouter()
+# router.register(r'', TerritoryViewSet, basename='territory')
+
+# urlpatterns = router.urls
