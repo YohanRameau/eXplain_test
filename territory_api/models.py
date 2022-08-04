@@ -35,3 +35,15 @@ class Territory(models.Model):
     websites_count = models.IntegerField(default=0)
     sources_count = models.IntegerField(default=0)
     
+class TerritoryParents(models.Model):
+    """Representation of Territory Relationship.
+    Attributes:
+        child_id (`integer`): id
+        parent_id (`integer`): count of impacters
+        updated_at (`datetime`): Update date of the territory.
+        created_at (`datetime`): Creation date of the territory.
+    """
+    child_id = models.ForeignKey(Territory, on_delete=models.CASCADE, related_name='child_id')
+    parent_id = models.ForeignKey(Territory, on_delete=models.CASCADE, related_name='parent_id')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
