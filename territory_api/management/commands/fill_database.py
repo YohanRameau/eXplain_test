@@ -34,6 +34,10 @@ class Command(BaseCommand):
             with open(csv_path, newline='') as csvfile:
                 reader = csv.DictReader(csvfile, delimiter=',')
                 for row in reader:
+                    # Clean Data
+                    row['child_id'] = Territory.objects.get(id=int(row['child_id']))
+                    row['parent_id'] = Territory.objects.get(id=int(row['parent_id']))
+                    # Insert Data
                     Territory_Parents.objects.get_or_create(id=row['id'], child_id=row['child_id'], parent_id=row['parent_id'], created_at=row['created_at'], updated_at=row['updated_at'])
             self.stdout.write(self.style.SUCCESS('Successfully filled the database with territories relationships data.'))
         except Exception as e:
